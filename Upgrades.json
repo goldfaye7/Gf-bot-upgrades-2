@@ -1,0 +1,12 @@
+{
+  "behaviors": [
+    {
+      "trigger": "weather",
+      "code": "import os\nos.system('termux-open-url https://www.weather.com')"
+    },
+    {
+      "trigger": "motivate",
+      "code": "from gtts import gTTS\nimport os, uuid\nquote = 'Believe in yourself. You are stronger than you think.'\nfilename = f'/data/data/com.termux/files/home/{uuid.uuid4()}.mp3'\ntts = gTTS(text=quote, lang='en', tld='com')\ntts.save(filename)\nos.system(f'mpv --really-quiet {filename}')\nos.remove(filename)"
+    }
+  ]
+}
